@@ -70,15 +70,11 @@ export const combineResult = (arrObj) => {
         return type === ActionType.Duration;
     });
     result += `${checkValue('maxDuration', arrObj[indexDuration].lowMax)} \n ${checkValue('minDuration', arrObj[indexDuration].lowMin)} `;
-    result += '>';
-    result += `
-        <c:images>
-            <c:image src="@dsd/dfs"/>
-        </c:images>
-        <c:lifeOffset `;
+    result += '> \n';
     const indexLifeOffset = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.LifeOffset;
     });
+    result += `<c:lifeOffset `;
     result += ` ${checkValue('active', arrObj[indexLifeOffset].active)} ` +
         `${checkValue('relative', arrObj[indexLifeOffset].relative)} ` +
         `${checkValue('highMin', arrObj[indexLifeOffset].highMin)} ` +
