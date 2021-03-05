@@ -34,3 +34,5 @@ const printResult = (r: string) => {
 if (btn) {
     btn.onclick = convert;
 }
+
+console.log('fix 1');
