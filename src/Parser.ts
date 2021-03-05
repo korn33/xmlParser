@@ -7,7 +7,7 @@ export class Parser {
     constructor() {
     }
 
-    public convert(v: string) {
+    public convert(v: string, namespace: string = 'c') {
         this._arr = this.createArray(v);
         const doubleArray: string[][] = ActionType.listActionTypes.map((type, index) => {
             return this.findSmallArray(type, index);
@@ -16,7 +16,7 @@ export class Parser {
             return this._getObjectFromArray(arr);
         });
         console.log(arrObj.slice(0, -1));
-        return combineResult(arrObj.slice(0, -1));
+        return combineResult(arrObj.slice(0, -1), namespace);
     }
 
     private findSmallArray(type: string, index: number): string[] {

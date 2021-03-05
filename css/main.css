@@ -17,12 +17,25 @@
     align-self: center;
 }
 
-textarea {
+#input, #output {
     width: 400px;
     height: 600px;
 }
 
 #convert {
-    margin: 10px;
+    margin: 300px 10px 100px 10px;
+    font-size: 30px;
+}
 
+.main .container:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#namespace {
+    margin: 10px;
+    width: 200px;
+    height: 50px;
 }

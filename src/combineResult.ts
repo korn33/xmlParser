@@ -1,5 +1,6 @@
 import {ActionType} from "./ActionType.js";
 
+let namespaceGl: string;
 const checkValue = (propName: string, value: string): string => {
     if (value === undefined) {
         return '';
@@ -11,13 +12,13 @@ const checkValue = (propName: string, value: string): string => {
 const getArrayProperties = (elemArrObj: any): string => {
     let result: string = '';
     if ( (elemArrObj.scalingCount !== '0') && (elemArrObj.scalingCount !== undefined) ) {
-        result += `<c:properties> \n`;
+        result += `<${namespaceGl}:properties> \n`;
         for (let i: number = 0; i<=elemArrObj.scalingCount - 1; i++) {
             const propertyScalingName: string = 'scaling' + i;
             const propertyTimeName: string = 'timeline' + i;
-            result += `<c:property time="${elemArrObj[propertyTimeName]}" scale="${elemArrObj[propertyScalingName]}"/> \n`;
+            result += `<${namespaceGl}:property time="${elemArrObj[propertyTimeName]}" scale="${elemArrObj[propertyScalingName]}"/> \n`;
         }
-        result += `</c:properties> \n`;
+        result += `</${namespaceGl}:properties> \n`;
     }
     return result;
 };
@@ -25,12 +26,12 @@ const getArrayProperties = (elemArrObj: any): string => {
 const getTint = (elemArrObj: any): string => {
     let result: string = '';
     if ( ( (elemArrObj.colorsCount !== '0' ) || (elemArrObj.colorsCount !== undefined) ) && ( (elemArrObj.timelineCount !== '0' ) || (elemArrObj.timelineCount !== undefined) ) ) {
-        result += `\n <c:tint> \n`;
+        result += `\n <${namespaceGl}:tint> \n`;
         const colors: string = getColorsTint(elemArrObj);
         result += colors;
         const timelines: string = getTimelinesTint(elemArrObj);
         result += timelines;
-        result += `\n </c:tint> \n`;
+        result += `\n </${namespaceGl}:tint> \n`;
     }
     return result;
 };
@@ -38,12 +39,12 @@ const getTint = (elemArrObj: any): string => {
 const getColorsTint = (elemArrObj: any): string => {
     let result: string = '';
     if ( (elemArrObj.colorsCount !== '0') && (elemArrObj.colorsCount !== undefined) ) {
-        result += `\n <c:colors> \n`;
+        result += `\n <${namespaceGl}:colors> \n`;
         for (let i: number = 0; i<=elemArrObj.colorsCount - 1; i++) {
             const propertyColors: string = 'colors' + i;
-            result += `<c:color>${elemArrObj[propertyColors]}</c:color> \n`;
+            result += `<${namespaceGl}:color>${elemArrObj[propertyColors]}</${namespaceGl}:color> \n`;
         }
-        result += `\n </c:colors> \n`;
+        result += `\n </${namespaceGl}:colors> \n`;
     }
     return result;
 }
@@ -51,19 +52,20 @@ const getColorsTint = (elemArrObj: any): string => {
 const getTimelinesTint = (elemArrObj: any): string => {
     let result: string = '';
     if ( (elemArrObj.timelineCount !== '0') && (elemArrObj.timelineCount !== undefined) ) {
-        result += `\n <c:timelines> \n`;
+        result += `\n <${namespaceGl}:timelines> \n`;
         for (let i: number = 0; i<=elemArrObj.timelineCount - 1; i++) {
             const propertyColors: string = 'timeline' + i;
-            result += `<c:timeline>${elemArrObj[propertyColors]}</c:timeline> \n`;
+            result += `<${namespaceGl}:timeline>${elemArrObj[propertyColors]}</${namespaceGl}:timeline> \n`;
         }
-        result += `\n </c:timelines> \n`;
+        result += `\n </${namespaceGl}:timelines> \n`;
     }
     return result;
 };
 
-export const combineResult = (arrObj: any[]): string => {
+export const combineResult = (arrObj: any[], namespace: string): string => {
+    namespaceGl = namespace;
     //------------------------------------------------------ParticleView-----------------------------------------------------------------------
-    let result: string = `<c:ParticleView \n `;
+    let result: string = `<${namespace}:ParticleView \n `;
     const indexCount = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.Count
     });
@@ -99,7 +101,7 @@ export const combineResult = (arrObj: any[]): string => {
     const indexLifeOffset = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.LifeOffset
     });
-    result += `<c:lifeOffset `;
+    result += `<${namespace}:lifeOffset `;
     result += ` ${checkValue('active', arrObj[indexLifeOffset].active)} ` +
         `${checkValue('relative', arrObj[indexLifeOffset].relative)} `+
         `${checkValue('highMin', arrObj[indexLifeOffset].highMin)} `+
@@ -111,33 +113,33 @@ export const combineResult = (arrObj: any[]): string => {
     const indexLife = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.Life
     });
-    result += '\n <c:life ';
+    result += `\n <${namespace}:life `;
     result += ` ${checkValue('lowMin', arrObj[indexLife].lowMin)} ` +
             `${checkValue('lowMax', arrObj[indexLife].lowMax)} ` +
             `${checkValue('highMax', arrObj[indexLife].highMax)} ` +
             `${checkValue('highMin', arrObj[indexLife].highMin)} ` +
             `${checkValue('relative', arrObj[indexLife].relative)}> `;
     result += getArrayProperties(arrObj[indexLife]);
-    result += '\n </c:life> \n';
+    result += `\n </${namespace}:life> \n`;
 
     //------------------------------------------------------Emission-----------------------------------------------------------------------
     const indexEmission = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.Emission
     });
-    result += `\n <c:emission \n`;
+    result += `\n <${namespace}:emission \n`;
     result += ` ${checkValue('relative', arrObj[indexEmission].relative)} ` +
             `${checkValue('highMin', arrObj[indexEmission].highMin)} `+
             `${checkValue('highMax', arrObj[indexEmission].highMax)} `+
             `${checkValue('lowMax', arrObj[indexEmission].lowMax)} ` +
             `${checkValue('lowMin', arrObj[indexEmission].lowMin)}> `;
     result += getArrayProperties(arrObj[indexEmission]);
-    result += '\n </c:emission>';
+    result += `\n </${namespace}:emission>`;
 
     //------------------------------------------------------Angle-----------------------------------------------------------------------
     const indexAngle = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.Angle
     });
-    result += `\n <c:angle \n`;
+    result += `\n <${namespace}:angle \n`;
     result += ` ${checkValue('lowMin', arrObj[indexAngle].lowMin)} ` +
         `${checkValue('lowMax', arrObj[indexAngle].lowMax)} ` +
         `${checkValue('highMax', arrObj[indexAngle].highMax)} `+
@@ -145,14 +147,14 @@ export const combineResult = (arrObj: any[]): string => {
         `${checkValue('relative', arrObj[indexAngle].relative)} `+
         `${checkValue('active', arrObj[indexAngle].active)}> `;
     result += getArrayProperties(arrObj[indexAngle]);
-    result += `\n </c:angle> \n`;
+    result += `\n </${namespace}:angle> \n`;
 
 
     //------------------------------------------------------Gravity-----------------------------------------------------------------------
     const indexGravity = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.Gravity
     });
-    result += `\n <c:gravity \n`;
+    result += `\n <${namespace}:gravity \n`;
     result += ` ${checkValue('active', arrObj[indexGravity].active)} ` +
         `${checkValue('relative', arrObj[indexGravity].relative)} `+
         `${checkValue('highMin', arrObj[indexGravity].highMin)} ` +
@@ -161,7 +163,7 @@ export const combineResult = (arrObj: any[]): string => {
         `${checkValue('lowMin', arrObj[indexGravity].lowMin)}> `;
     result += getArrayProperties(arrObj[indexGravity]);
     result += `
-    </c:gravity>
+    </${namespace}:gravity>
     `;
 
 
@@ -169,7 +171,7 @@ export const combineResult = (arrObj: any[]): string => {
     const indexRotation = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.Rotation
     });
-    result += `\n <c:rotation \n`;
+    result += `\n <${namespace}:rotation \n`;
     result += `
         ${checkValue('active', arrObj[indexRotation].active)}
         ${checkValue('relative', arrObj[indexRotation].relative)}
@@ -180,13 +182,13 @@ export const combineResult = (arrObj: any[]): string => {
     `;
     result += getArrayProperties(arrObj[indexRotation]);
     result += `
-    </c:rotation>`;
+    </${namespace}:rotation>`;
 
     //------------------------------------------------------scaleY-----------------------------------------------------------------------
     const indexYScale = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.YScale
     });
-    result += `\n <c:scaleY \n`;
+    result += `\n <${namespace}:scaleY \n`;
     result += `
             ${checkValue('relative', arrObj[indexYScale].relative)}
             ${checkValue('highMin', arrObj[indexYScale].highMin)}
@@ -197,14 +199,14 @@ export const combineResult = (arrObj: any[]): string => {
     `;
     result += getArrayProperties(arrObj[indexYScale]);
     result += `
-        </c:scaleY>
+        </${namespace}:scaleY>
     `;
 
     //------------------------------------------------------scaleX-----------------------------------------------------------------------
     const indexXScale = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.XScale
     });
-    result += `\n <c:scaleX \n`;
+    result += `\n <${namespace}:scaleX \n`;
     result += `
             ${checkValue('relative', arrObj[indexXScale].relative)}
             ${checkValue('highMin', arrObj[indexXScale].highMin)}
@@ -214,14 +216,14 @@ export const combineResult = (arrObj: any[]): string => {
     `;
     result += getArrayProperties(arrObj[indexXScale]);
     result += `
-        </c:scaleX>
+        </${namespace}:scaleX>
     `;
 
     //------------------------------------------------------spawnHeight-----------------------------------------------------------------------
     const indexSpawnHeight = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.SpawnHeight
     });
-    result += `\n <c:spawnHeight \n`;
+    result += `\n <${namespace}:spawnHeight \n`;
     result += `
             ${checkValue('relative', arrObj[indexSpawnHeight].relative)}
             ${checkValue('highMin', arrObj[indexSpawnHeight].highMin)}
@@ -231,14 +233,14 @@ export const combineResult = (arrObj: any[]): string => {
     `;
     result += getArrayProperties(arrObj[indexSpawnHeight]);
     result += `
-        </c:spawnHeight>
+        </${namespace}:spawnHeight>
     `;
 
     //------------------------------------------------------spawnWidth-----------------------------------------------------------------------
     const indexSpawnWidth = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.SpawnWidth
     });
-    result += `\n <c:spawnWidth \n`;
+    result += `\n <${namespace}:spawnWidth \n`;
     result += `
         ${checkValue('relative', arrObj[indexSpawnWidth].relative)}
         ${checkValue('highMin', arrObj[indexSpawnWidth].highMin)}
@@ -248,14 +250,14 @@ export const combineResult = (arrObj: any[]): string => {
     `;
     result += getArrayProperties(arrObj[indexSpawnWidth]);
     result += `
-    </c:spawnWidth>
+    </${namespace}:spawnWidth>
     `;
 
     //------------------------------------------------------transparency-----------------------------------------------------------------------
     const indexTransparency = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.Transparency
     });
-    result += `\n <c:transparency \n`;
+    result += `\n <${namespace}:transparency \n`;
     result += `
         ${checkValue('relative', arrObj[indexTransparency].relative)}
         ${checkValue('highMin', arrObj[indexTransparency].highMin)}
@@ -266,14 +268,14 @@ export const combineResult = (arrObj: any[]): string => {
     `;
     result += getArrayProperties(arrObj[indexTransparency]);
     result += `
-    </c:transparency>
+    </${namespace}:transparency>
     `;
 
     //------------------------------------------------------velocity-----------------------------------------------------------------------
     const indexVelocity = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.Velocity
     });
-    result += `\n <c:velocity \n`;
+    result += `\n <${namespace}:velocity \n`;
     result += `
         ${checkValue('relative', arrObj[indexVelocity].relative)}
         ${checkValue('highMin', arrObj[indexVelocity].highMin)}
@@ -284,14 +286,14 @@ export const combineResult = (arrObj: any[]): string => {
     `;
     result += getArrayProperties(arrObj[indexVelocity]);
     result += `
-    </c:velocity>
+    </${namespace}:velocity>
     `;
 
     //------------------------------------------------------wind-----------------------------------------------------------------------
     const indexWind = ActionType.listActionTypes.findIndex(type => {
         return type === ActionType.Wind
     });
-    result += `\n <c:wind \n`;
+    result += `\n <${namespace}:wind \n`;
     result += `
         ${checkValue('relative', arrObj[indexWind].relative)}
         ${checkValue('highMin', arrObj[indexWind].highMin)}
@@ -302,7 +304,7 @@ export const combineResult = (arrObj: any[]): string => {
     `;
     result += getArrayProperties(arrObj[indexWind]);
     result += `
-    </c:wind>
+    </${namespace}:wind>
     `;
 
     //------------------------------------------------------tint-----------------------------------------------------------------------
@@ -310,6 +312,6 @@ export const combineResult = (arrObj: any[]): string => {
         return type === ActionType.Tint
     });
     result += getTint(arrObj[indexTint]);
-    result += `\n </c:ParticleView>`;
+    result += `\n </${namespace}:ParticleView>`;
     return result;
 }

@@ -6,19 +6,24 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<div class="container">
-    <div class="firstChild">
-        <h2>.bin</h2>
-        <textarea id="input"></textarea>
+<div class="main">
+    <div class="container">
+        <div class="firstChild">
+            <h2>.bin</h2>
+            <textarea id="input"></textarea>
+        </div>
+        <div>
+            <button id="convert" onclick=""> > </button>
+        </div>
+        <div class="firstChild">
+            <h2>.xml</h2>
+            <textarea id="output"></textarea>
+        </div>
     </div>
-    <div>
-        <button id="convert" onclick="">Convert</button>
+    <div class="container">
+        <h2>Namespace</h2>
+        <textarea id="namespace"></textarea>
     </div>
-    <div class="firstChild">
-        <h2>.xml</h2>
-        <textarea id="output"></textarea>
-    </div>
-
 </div>
 <script src="dir/index.js" type="module"></script>
 </body>
