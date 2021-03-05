@@ -1,0 +1,28 @@
+.container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.firstChild{
+    margin: auto;
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+.firstChild > * {
+    display: block;
+    align-self: center;
+}
+
+textarea {
+    width: 400px;
+    height: 600px;
+}
+
+#convert {
+    margin: 10px;
+
+}

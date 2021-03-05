@@ -1,0 +1,222 @@
+Untitled
+- Delay -
+active: true - none
+lowMin: 1.0 - ParticleView.props.minDelay
+lowMax: 1.0 - ParticleView.props.maxDelay
+- Duration - 
+lowMin: 3000.0 - ParticleView.props.minDuration
+lowMax: 3000.0 - ParticleView.props.maxDuration
+- Count - 
+min: 1 - ParticleView.props.minParticleCount
+max: 200 - ParticleView.props.maxParticleCount
+- Emission - 
+lowMin: 3.0 - ParticleView.childs.emission.props.lowMin
+lowMax: 3.0 - ParticleView.childs.emission.props.lowMax
+highMin: 250.0 - ParticleView.childs.emission.props.highMin
+highMax: 250.0 - ParticleView.childs.emission.props.highMax
+relative: true - ParticleView.childs.emission.props.relative
+scalingCount: 1 - none
+scaling0: 1.0 - ParticleView.childs.emission.childs.properties[0].scale
+timelineCount: 1 - none
+timeline0: 0.0 - ParticleView.childs.emission.childs.properties[0].time
+- Life - 
+lowMin: 2.0 - ParticleView.childs.life.props.lowMin
+lowMax: 2.0 - ParticleView.childs.life.props.lowMax
+highMin: 500.0 - ParticleView.childs.life.props.highMin
+highMax: 1000.0 - ParticleView.childs.life.props.highMax
+relative: true - ParticleView.childs.life.props.relative
+scalingCount: 3 - none
+scaling0: 1.0 - ParticleView.childs.life.childs.properties[0].scale
+scaling1: 1.0 - ParticleView.childs.life.childs.properties[1].scale
+scaling2: 0.3 - ParticleView.childs.life.childs.properties[2].scale
+timelineCount: 3 - none
+timeline0: 0.0 - ParticleView.childs.life.childs.properties[0].time
+timeline1: 0.66 - ParticleView.childs.life.childs.properties[1].time
+timeline2: 1.0 - ParticleView.childs.life.childs.properties[2].time
+independent: true
+- Life Offset - 
+active: true - ParticleView.childs.lifeOffset.props.active
+lowMin: 1.0 - ParticleView.childs.lifeOffset.props.lowMin
+lowMax: 1.0 - ParticleView.childs.lifeOffset.props.lowMax
+highMin: 1.0 - ParticleView.childs.lifeOffset.props.highMin
+highMax: 1.0 - ParticleView.childs.lifeOffset.props.highMax
+relative: true - ParticleView.childs.lifeOffset.props.relative
+scalingCount: 2 - none
+scaling0: 1.0 - ParticleView.childs.lifeOffset.childs.properties[0].scale
+scaling1: 0.6348315 - ParticleView.childs.lifeOffset.childs.properties[1].scale
+timelineCount: 2 - none
+timeline0: 0.0 - ParticleView.childs.lifeOffset.childs.properties[0].time
+timeline1: 0.39444444 - ParticleView.childs.lifeOffset.childs.properties[1].time
+independent: true - none---------------------------------------------------
+- X Offset - 
+active: true
+lowMin: 1.0
+lowMax: 1.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1 - none
+scaling0: 1.0
+timelineCount: 1 - none
+timeline0: 0.0
+- Y Offset - 
+active: true
+lowMin: 1.0
+lowMax: 1.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1 - none
+scaling0: 1.0
+timelineCount: 1 - none
+timeline0: 0.0
+- Spawn Shape - 
+shape: point
+- Spawn Width - 
+lowMin: 0.0 - ParticleView.childs.spawnWidth.props.lowMin
+lowMax: 0.0 - ParticleView.childs.spawnWidth.props.lowMax
+highMin: 0.0 - ParticleView.childs.spawnWidth.props.highMin
+highMax: 0.0 - ParticleView.childs.spawnWidth.props.highMax
+relative: false - ParticleView.childs.spawnWidth.props.relative
+scalingCount: 1 - none
+scaling0: 1.0 - ParticleView.childs.spawnWidth.childs.properties[0].scale
+timelineCount: 1 - none
+timeline0: 0.0 - ParticleView.childs.spawnWidth.childs.properties[0].time
+- Spawn Height - 
+lowMin: 0.0 - ParticleView.childs.spawnHeight.props.lowMin
+lowMax: 0.0 - ParticleView.childs.spawnHeight.props.lowMax
+highMin: 0.0 - ParticleView.childs.spawnHeight.props.highMin
+highMax: 0.0 - ParticleView.childs.spawnHeight.props.highMax
+relative: false - ParticleView.childs.spawnHeight.props.relative
+scalingCount: 1 - none
+scaling0: 1.0 - ParticleView.childs.spawnHeight.childs.properties[0].scale
+timelineCount: 1 - none
+timeline0: 0.0 - ParticleView.childs.spawnHeight.childs.properties[0].time
+- X Scale - 
+lowMin: 1.0 - ParticleView.childs.scaleX.props.lowMin
+lowMax: 1.0 - ParticleView.childs.scaleX.props.lowMax
+highMin: 32.0 - ParticleView.childs.scaleX.props.highMin
+highMax: 32.0 - ParticleView.childs.scaleX.props.highMax
+relative: true - ParticleView.childs.scaleX.props.relative
+scalingCount: 1 - none
+scaling0: 1.0 - ParticleView.childs.scaleX.childs.properties[0].scale
+timelineCount: 1 - none
+timeline0: 0.0 - ParticleView.childs.scaleX.childs.properties[0].time
+- Y Scale - 
+active: true - none
+lowMin: -1.0 - ParticleView.childs.scaleY.props.lowMin
+lowMax: -1.0 - ParticleView.childs.scaleY.props.lowMax
+highMin: 1.0 - ParticleView.childs.scaleY.props.highMin
+highMax: 1.0 - ParticleView.childs.scaleY.props.highMax
+relative: true - ParticleView.childs.scaleY.props.relative
+scalingCount: 1 - none
+scaling0: 1.0 - ParticleView.childs.scaleY.childs.properties[0].scale
+timelineCount: 1 - none
+timeline0: 0.0 - ParticleView.childs.scaleY.childs.properties[0].time
+- Velocity - 
+active: true - none
+lowMin: 1.0 - ParticleView.childs.velocity.props.lowMin
+lowMax: 1.0 - ParticleView.childs.velocity.props.lowMax
+highMin: 30.0 - ParticleView.childs.velocity.props.highMin
+highMax: 301.0 - ParticleView.childs.velocity.props.highMax
+relative: true - ParticleView.childs.velocity.props.relative
+scalingCount: 2 - none
+scaling0: 1.0 - ParticleView.childs.velocity.childs.properties[0].scale
+scaling1: 0.505618 - ParticleView.childs.velocity.childs.properties[1].scale
+timelineCount: 2 - none
+timeline0: 0.0 - ParticleView.childs.velocity.childs.properties[0].time
+timeline1: 0.47407407 - ParticleView.childs.velocity.childs.properties[1].time
+- Angle - 
+active: true
+lowMin: 90.0
+lowMax: 90.0
+highMin: 45.0
+highMax: 135.0
+relative: true
+scalingCount: 3 - none
+scaling0: 1.0
+scaling1: 0.0
+scaling2: 0.0
+timelineCount: 3 - none
+timeline0: 0.0
+timeline1: 0.5
+timeline2: 1.0
+- Rotation - 
+active: true
+lowMin: 2.0
+lowMax: 360.0
+highMin: 181.0
+highMax: 181.0
+relative: true
+scalingCount: 2 - none
+scaling0: 0.0
+scaling1: 1.0
+timelineCount: 2 - none
+timeline0: 0.0
+timeline1: 1.0
+- Wind - 
+active: true
+lowMin: 1.0
+lowMax: 1.0
+highMin: 1.0
+highMax: 1.0
+relative: true
+scalingCount: 3 - none
+scaling0: 1.0
+scaling1: 0.5449438
+scaling2: 0.76404494
+timelineCount: 3 - none
+timeline0: 0.0
+timeline1: 0.44074073
+timeline2: 0.7407407
+- Gravity - 
+active: true
+lowMin: 1.0
+lowMax: 1.0
+highMin: 1.0
+highMax: 1.0
+relative: true
+scalingCount: 4 - none
+scaling0: 1.0
+scaling1: 0.75510204
+scaling2: 0.93877554
+scaling3: 0.7346939
+timelineCount: 4 - none
+timeline0: 0.0
+timeline1: 0.31506848
+timeline2: 0.75342464
+timeline3: 0.7671233
+- Tint - 
+colorsCount: 3
+colors0: 1.0
+colors1: 0.12156863
+colors2: 0.047058824
+timelineCount: 1 - none
+timeline0: 0.0
+- Transparency - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 1.0
+highMax: 1.0
+relative: false
+scalingCount: 4 - none
+scaling0: 0.0
+scaling1: 1.0
+scaling2: 0.75
+scaling3: 0.0
+timelineCount: 4 - none
+timeline0: 0.0
+timeline1: 0.2
+timeline2: 0.8
+timeline3: 1.0
+- Options - 
+attached: true
+continuous: true
+aligned: true
+additive: true
+behind: true
+premultipliedAlpha: true
+spriteMode: single
+- Image Paths -
+particle.png
+

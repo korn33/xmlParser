@@ -1,0 +1,106 @@
+<c:ParticleView
+        maxParticleCount=""
+        minParticleCount=""
+        minDelay=""
+        maxDelay=""
+        maxDuration=""
+        minDuration=""
+        state=""
+        flipY=""
+        scaleY=""
+        scaleX=""
+        depth=""
+        additive=""
+        aligned=""
+        attached=""
+        continuous=""
+        enabledPositioning=""
+        minOffsetX=""
+        minOffsetY=""
+        offsetX=""
+        offsetY=""
+        premultipliedAlpha=""
+        rotation=""
+>
+    <c:images>
+        <c:image src="@dsd/dfs"/>
+    </c:images>
+    <c:lifeOffset active=""
+                  relative=""
+                  highMin=""
+                  highMax=""
+                  lowMax=""
+                  lowMin=""
+    />
+    <c:life lowMin="" lowMax="" highMax="" highMin="" relative="">
+        <c:properties>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:life>
+    <c:emission relative="" highMin="" highMax="" lowMax="" lowMin="">
+        <c:properties>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:emission>
+    <c:angle lowMin="" lowMax="" highMax="" highMin="" relative="" active="">
+        <c:properties>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:angle>
+    <c:gravity active="" relative="" highMin="" highMax="" lowMax="" lowMin="">
+        <c:properties>
+            <c:property time="" scale=""/>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:gravity>
+    <c:rotation active="" relative="" highMin="" highMax="" lowMax="" lowMin="">
+        <c:properties>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:rotation>
+    <c:scaleY relative="" highMin="" highMax="" lowMax="" lowMin="" active="">
+        <c:properties>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:scaleY>
+    <c:scaleX relative="" highMin="" highMax="" lowMax="" lowMin="">
+        <c:properties>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:scaleX>
+    <c:spawnHeight relative="" highMin="" highMax="" lowMax="" lowMin="">
+        <c:properties>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:spawnHeight>
+    <c:spawnWidth relative="" highMin="" highMax="" lowMax="" lowMin="">
+        <c:properties>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:spawnWidth>
+    <c:transparency relative="" highMin="" highMax="" lowMax="" lowMin="" active="">
+        <c:properties>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:transparency>
+    <c:velocity relative="" highMin="" highMax="" lowMax="" lowMin="" active="">
+        <c:properties>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:velocity>
+    <c:wind relative="" highMin="" highMax="" lowMax="" lowMin="" active="">
+        <c:properties>
+            <c:property time="" scale=""/>
+        </c:properties>
+    </c:wind>
+    <c:tint>
+        <c:colors>
+            <c:color></c:color>
+        </c:colors>
+        <c:timelines>
+            <c:timeline >
+
+            </c:timeline>
+        </c:timelines>
+    </c:tint>
+</c:ParticleView>
