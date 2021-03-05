@@ -29,4 +29,4 @@ const printResult = (r) => {
 if (btn) {
     btn.onclick = convert;
 }
-console.log('fix 1');
+console.log('fix 3');

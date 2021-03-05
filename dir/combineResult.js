@@ -9,7 +9,7 @@ const checkValue = (propName, value) => {
 };
 const getArrayProperties = (elemArrObj) => {
     let result = '';
-    if ((elemArrObj.scalingCount != 0) && (elemArrObj.scalingCount !== undefined)) {
+    if ((elemArrObj.scalingCount !== '0') && (elemArrObj.scalingCount !== undefined)) {
         result += `<c:properties> \n`;
         for (let i = 0; i <= elemArrObj.scalingCount - 1; i++) {
             const propertyScalingName = 'scaling' + i;
@@ -22,7 +22,7 @@ const getArrayProperties = (elemArrObj) => {
 };
 const getTint = (elemArrObj) => {
     let result = '';
-    if ((elemArrObj.scalingCount != 0) && (elemArrObj.scalingCount !== undefined)) {
+    if (((elemArrObj.colorsCount !== '0') || (elemArrObj.colorsCount !== undefined)) && ((elemArrObj.timelineCount !== '0') || (elemArrObj.timelineCount !== undefined))) {
         result += `\n <c:tint> \n`;
         const colors = getColorsTint(elemArrObj);
         result += colors;
@@ -34,7 +34,7 @@ const getTint = (elemArrObj) => {
 };
 const getColorsTint = (elemArrObj) => {
     let result = '';
-    if ((elemArrObj.scalingCount != 0) && (elemArrObj.scalingCount !== undefined)) {
+    if ((elemArrObj.colorsCount !== '0') && (elemArrObj.colorsCount !== undefined)) {
         result += `\n <c:colors> \n`;
         for (let i = 0; i <= elemArrObj.colorsCount - 1; i++) {
             const propertyColors = 'colors' + i;
@@ -46,9 +46,9 @@ const getColorsTint = (elemArrObj) => {
 };
 const getTimelinesTint = (elemArrObj) => {
     let result = '';
-    if ((elemArrObj.scalingCount != 0) && (elemArrObj.scalingCount !== undefined)) {
+    if ((elemArrObj.timelineCount !== '0') && (elemArrObj.timelineCount !== undefined)) {
         result += `\n <c:timelines> \n`;
-        for (let i = 0; i <= elemArrObj.colorsCount - 1; i++) {
+        for (let i = 0; i <= elemArrObj.timelineCount - 1; i++) {
             const propertyColors = 'timeline' + i;
             result += `<c:timeline>${elemArrObj[propertyColors]}</c:timeline> \n`;
         }
